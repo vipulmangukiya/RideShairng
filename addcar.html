@@ -1,0 +1,163 @@
+<html>
+<head>
+<title>RideSharing</title>
+
+			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <meta charset="utf-8"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="msapplication-tap-highlight" content="no"/>
+        <meta name="viewport" content="user-scalable=no, maximum-scale=1, minimum-scale=1, width=device-width"/>
+        
+		
+		<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/include.jsonp"></script> 	
+		<script src="js/app.js"  type="text/javascript" ></script>
+			<script src="js/add-car.js"  type="text/javascript" ></script>
+		<script src="js/Ajax-form.js" type="text/javascript"></script>
+		<link  type="text/css" rel="stylesheet" href="css/toast.css"> 
+		<link id="cs" rel="stylesheet" type="text/css"> 
+		<link  rel="styleshet" type="text/css" href='css/spinner.css'>
+		<link  rel="stylesheet" type="text/css" href='css/addcar.css'>
+		<link type="text/css" rel="stylesheet"  href="css/edit-profile.css"> 
+		<link type="text/css" rel="stylesheet"  href="css/toast.css"> 
+
+		<script type="text/javascript" src="cordova.js" charset="utf-8"></script> 	 	
+		<script type="text/javascript">
+		var  app = {
+			initialize: function() {
+				this.bindEvents();
+			},
+			bindEvents: function() {
+				document.addEventListener('deviceready',this.onDeviceReady, false);
+			},
+			onDeviceReady: function() {
+				var btn = document.getElementById('capImages');
+					btn.addEventListener("click", app.useCamera, false);
+			},
+			useCamera: function() {
+				navigator.camera.getPicture(app.onSuccessCam,app.Error,{
+					destinationType: Camera.DestinationType.DATA_URL,
+					sourceType: 0
+				});
+			},
+			onSuccessCam: function(imageURI) {
+				var image = document.getElementById('car_avtar');
+					image.src = "data:image/jpeg;base64," + imageURI;
+					document.getElementById('add_car_img_db').innerHTML = imageURI;
+			},
+			Error: function(error) {
+				//alert(error);
+			}
+		};
+			</script> 	
+</head>
+	<body>
+		<div class="" id="spinner-load" >
+			<div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		 <div class="error_msg_vipz" style="display:none;"></div>
+		<div class="font">
+			<div class="color-white bg-color menu-back">
+				<a href="profile.html" class="color-white"><i class="fa fa-arrow-left" class="font-car"></i></a>
+				<label>Add a Car</label>
+			</div>
+			<div class="profile-avatar">
+				<img src="" id="car_avtar" name="avtar">
+				<a href="#" style="" id="capImages"><i class="fa fa-pencil"></i></a>
+				
+			</div><hr>
+			<form name="" action="" method="post" id="frm-add-user-car">
+			<div class="car-detail make-car">
+				<a href="#">		
+					<label class="car-detail-title">BRAND</label>
+					<label class="car-sub-title car-make-lbl" id='lbl_sel_brand'>Choose the Brand of car</label>
+					<i class="fa fa-sort-down right-side car-sub-title-icon" id="lug-size" ></i>
+					<small style="display:block; margin-left:10px;" id="sel-car-make"></small>
+					<input type="hidden" name="txt-car-brand" id="txt-sel-brand">
+				</a>
+			</div>
+			<!-- Car Brand Option -->
+			<div>
+				<ul style="display:none" id="op-make-car" class="other-det car-detail-enter">
+					<!--fetch to  Database  -->
+				</ul>
+			</div>
+			<div class="car-detail modal-car">
+				<a href="#">
+					<label class="car-detail-title">MODAL</label>
+					<label class="car-sub-title car-modal-lbl" id='lbl_sel_modal'>Choose the car Modal	</label>
+					<i class="fa fa-sort-down right-side car-sub-title-icon" id="lug-size" ></i>
+					<small style="display:block; margin-left:10px;" id="sel-modal"></small>
+					<input type="hidden" name="txt-car-modal" id="txt-sel-modal">
+				</a>
+			</div>
+			<!-- Car Modal Option -->
+			<div>
+				<ul style="display:none" id="op-modal-car" class="other-det car-detail-enter">
+					<!--fetch to  Database  -->
+				</ul>
+			</div>
+			<div class="car-detail seat-car">
+				<a href="#">
+					<label class="car-detail-title">TOTAL NUMBER OF SEATS</label>
+					<label class="car-sub-title">No. seats(car owner included)</label>
+					<i class="fa fa-sort-down right-side car-sub-title-icon" id="lug-size" ></i>
+					<small style="display:block; margin-left:10px;" id="sel-seat"></small>
+					<input type="hidden" name="txt-car-seats" id="txt-sel-seats">
+				</a>
+			</div>
+			<div>
+				<ul style="display:none" id="op-seat-car" class="other-det car-detail-enter">
+					<!--fetch to  Database  -->
+				</ul>
+			</div>
+			<!-- Car Color Option -->
+			<div class="car-detail color-car">
+				<a href="#">
+					<label class="car-detail-title">COLOUR</label>
+					<span class="car-color-title car-color-lbl" id='lbl_sel_colour'>Choose a colour</span>
+					<i class="fa fa-sort-down right-side car-sub-title-icon" id="lug-size"></i>
+					<small style="display:block; margin-left:10px;" id="sel-color"></small>
+					<input type="hidden" name="txt-car-color" id="txt-sel-car-color">
+				</a>
+			</div>
+			<div>
+				<ul style="display:none" id="op-color-car" class="other-det car-detail-enter">
+					<!--fetch to  Database  -->
+				</ul>
+			</div>
+			<!-- Car Type Option -->
+			<div class="car-detail type-car">
+				<a href="#">
+					<label class="car-detail-title">CAR TYPE</label>
+					<span class="car-sub-title car-type-lbl" id='lbl_sel_type'>Select Car type</span>
+					<i class="fa fa-sort-down right-side car-sub-title-icon" id="lug-size" class="car-sub-title-icon"></i>
+					<small style="display:block; margin-left:10px;" id="sel-type"></small>
+					<input type="hidden" name="txt-car-type" id="txt-sel-car-type">
+					<textarea name="car_avatar_add" id="add_car_img_db" style="display:none"></textarea>
+				</a>
+			</div>
+			<div>
+				<ul style="display:none" id="op-type-car" class="other-det car-detail-enter">
+						<!--fetch to  Database  -->
+				</ul>
+			</div>
+			<div>
+				<button class="btn-button" type="submit">Save Car</button>
+			</div>
+			<input type="hidden" name="user_id" id="txt-user_id"/>
+			</form>
+			<div id="msg">	</div>
+		</div>
+		<script type="text/javascript">
+		app.initialize();
+	 </script>
+	</body>
+</html>

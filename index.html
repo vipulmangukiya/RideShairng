@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>RideSharing</title>
+
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <meta charset="utf-8"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="msapplication-tap-highlight" content="no"/>
+        <meta name="viewport" content="user-scalable=no, maximum-scale=1, minimum-scale=1, width=device-width"/>
+        
+		<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/road.jsonp"></script> 	
+		<script type="text/javascript" src="js/app.js"></script> 
+		<script type="text/javascript" src="js/login.js"></script>  
+		<script type="text/javascript" src="js/login.jsonp"></script> 
+		
+		<script type="text/javascript" src="js/Ajax-form.js"></script>
+		<script src="js/validation.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/message-count.js"></script>
+		<script type="text/javascript" src="js/your-ride.js"></script> 
+		<link  type="text/css" rel="stylesheet" href="css/toast.css"> 
+		<link  type="text/css" rel="stylesheet" href="css/jquery-ui.min.css"> 
+		<link href='css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+		<link  type="text/css" rel="stylesheet" href="css/style.css">  
+		<link type="text/css" rel="stylesheet"  href="css/header.css">  
+		<link type="text/css" rel="stylesheet"  href="css/road.css"> 
+		<link type="text/css" rel="stylesheet"  href="css/bootstrap.min.css"> 
+		<link  type="text/css" rel="stylesheet" href="css/index.css">
+		<link  type="text/css" rel="stylesheet" href="css/login.css">		
+</head>
+    <body class="main">
+		 <div id="loader"></div> 
+		<div id="login"></div>
+		<!-- Header Menu bar  -->
+		 <div class='page-head'>
+            <button type='button' class="ham-burger" id="btn-toggle">
+                <span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+				<label style="padding: 10px 20px 10px 80px !important;font-size: 20px; font-weight:100;">RideSharing</label>
+			<div style="display:none" id="div-user-msg">
+				<a href="profile.html" class="ham-burger home-user" >
+					<i class="fa fa-user fa-lg"></i>
+				</a>
+				<a href="inbox.html" class="ham-burger home-msg home-user">
+					<i class="fa fa-envelope fa-lg"><span class="badge" style="margin-left:-13px;margin-top:-25px;padding:3px 4px" id="msg-count"><span></i>
+				</a>
+			</div>
+        </div>
+		<div class="error_msg_vipz" style="display:none;"></div>
+        <div id="myNav" class="overlay">
+            <div class="close-button-wrap">
+                <a href="javascript:void(0)" class="closebtn btn-toggle-close"  role="button" >&times;</a>
+            </div>
+            <div class="overlay-content" >
+                  <a href="#" class="avtr_back" id="menu_avtar"><img src="" class="menu-img-radius ride-img" id="img_src_user"></a>
+                  <a href="#"  id="your_page"><i class="fa fa-road fa-lg"></i>&nbsp;&nbsp; Your Ride</a>
+                  <a href="sharing.html?div=2"><i class="fa fa-search fa-lg"></i>&nbsp;&nbsp; Offer a Ride</a>
+                  <a href="sharing.html?div=1"><i class="fa fa-search fa-lg"></i>&nbsp;&nbsp; Find a Ride</a><hr class="hr_line">
+				  <div style="display:block" id="div-login"><a href='#' role='button' data-toggle='modal' data-target='#login-modal' class="btn-toggle-close"><span class='fa fa-lg fa-user-plus'></span>&nbsp;&nbsp; Login / SignUp</a></div>
+				  <div style="display:none" id="div-logout"><a href='#' role='button' class="btn-toggle-close btn-logout"><span class='fa fa-lg fa-sign-out'></span>&nbsp;&nbsp; Logout</a></div>
+				  <div style="display:none" id="div-location"><a href="location.html" ><i class="fa fa-search fa-lg"></i>&nbsp;&nbsp; Share Your Location</a><hr class="hr_line"></div>
+                  <a href="#" ><i class="fa fa-question fa-lg"></i>&nbsp;&nbsp; Help</a>
+            </div>
+        </div>
+		<div class="home_menu" id="div-cur-his" style="display:none">
+            <ul class="home_menubar">
+                <a href="#" role="button" id="btn-ride-current-li"><li id="find-color" class="menu_item_share">Current</li></a>
+				 <a href="#" role="button" id="btn-ride-history-li"><li id="offer-color" class="menu_item_share">History</li></a>
+            </ul>
+
+			<div id="div_current">Current Ride</div><br><br>
+			<div id="div_history" style="display:none"><br>
+				<div id="ride-list-history">Histroy Ride</div>
+			</div>
+		</div>
+			<div class="home-going-text" id="going" style="display:block">
+				<h3 style="color:red;">Going Somewhere?</h3>
+				<p style="color:red;">
+					<em >Share your travel cost with our <br/>community</em>
+				</p>
+			</div>
+<!-- Home Button Star -->
+			<div class="home_btn" >
+				<button type="button" id="btn-offer"  class="home_btn_offer button-big-home btn-button" style="display:block">Offer a Ride</button>
+				<button type="button" id="btn-find" class="home_btn_find button-big-home btn-button" style="display:block">Find a Ride</button>
+			</div>
+			
+		<div class="home_menu footer-div" style="display:none" id="div-footer">
+            <ul class="home_menubar">
+                <a href="sharing.html" role="button" id="btn-ride-find-li"><li id="find-color" class="menu_item_share">Find a Ride</li></a>
+				 <a href="sharing.html?div=2" role="button" id="btn-ride-offer-li"><li id="offer-color" class="menu_item_share">Offer a Ride</li></a>
+            </ul>
+        </div>
+
+	<script type="text/javascript" >
+		
+		var uid = getCookies("sharing_uid");
+		if(uid == "") {
+			var query_uid = qToJ().user_id;
+			if(query_uid != null)
+			{
+				uid=query_uid;
+				document.cookie = "sharing_uid" + "=" + uid + ";";
+			}
+		}
+		$("#btn-login").on('click', function(){
+		});
+		$("#btn-offer").on("click", function(){
+		window.location.href = "sharing.html?div=2";
+	});
+	$("#btn-find").on("click", function(){
+		window.location.href = "sharing.html?div=1";
+	});
+
+		
+	</script>	
+	
+    </body>
+</html>

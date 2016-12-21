@@ -1,0 +1,37 @@
+.head-height{
+	height:50px;
+}
+.user-image{
+	height:90px;
+	width:90px;
+	margin-top:30px;
+}
+.user-name{
+	font-size:20px;
+	margin-top:20px;
+}
+.user-year{
+	margin-left:10px;
+	margin-top:20px;
+}
+.user-bio{
+	margin-left:20px;
+}
+.user-preference{
+	margin:20px 5px 0 20px;
+	height:40px;
+	width:40px;
+}
+.main-title{
+	font-size:20px;
+	margin-bottom:10px;
+}
+.report{
+	 text-align:center;
+	 font-size:20px;
+	 padding:10px 0 10px 0;
+}
+.comment-name {
+    width: 100%;
+    resize: none;
+}

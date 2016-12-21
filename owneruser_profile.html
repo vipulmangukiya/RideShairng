@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>RideSharing</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <meta charset="utf-8"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="msapplication-tap-highlight" content="no"/>
+        <meta name="viewport" content="user-scalable=no, maximum-scale=1, minimum-scale=1, width=device-width"/>
+        
+		<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="js/preference_fnction.js"  type="text/javascript"></script>
+		<script type="text/javascript" src="js/include.jsonp"></script> 
+		<script type="text/javascript" src="js/owner-user-profile.js"></script> 	
+		<script type="text/javascript" src="js/login.js"></script> 
+		<script type="text/javascript" src="js/login.jsonp"></script>
+		<script src="js/Ajax-form.js" type="text/javascript"></script>
+
+		<script src="js/app.js"  type="text/javascript" ></script>
+		<link  type="text/css" rel="stylesheet" href="css/toast.css"> 
+		<link  type="text/css" rel="stylesheet" href="css/jquery-ui.min.css"> 
+		<link type="text/css" rel="stylesheet"  href="css/spinner.css">  
+		<link href='css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+		<link  type="text/css" rel="stylesheet" href="css/style.css">    
+		<link type="text/css" rel="stylesheet"  href="css/bootstrap.min.css"> 
+		<link type="text/css" rel="stylesheet" href="css/owner-user-profile.css">
+		<link  type="text/css" rel="stylesheet" href="css/login.css">    
+		<script src="js/ride-info.js"></script>
+			
+</head>
+    <body>
+	<div class="" id="spinner-load" >
+			<div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<div id="login"></div>	
+		 <div class="error_msg_vipz" style="display:none;"></div>
+		<div class="profile">
+			<div class="edit-heading" ><a href="" class="color-white" role="button" id="btn-back"><i class="fa fa-arrow-left  top-arro"></i><label id="lbl-title"></label></a></div> 
+			<div style="text-align:center">
+				<img src="Koala.jpg" class="img-circle " class="user-image" id="src_img_db"/><br>
+				<label class="user-name" id="lbl_name"></label>
+				<span class="user-year"id="lbl_year" ></span>
+			</div><hr>
+			<div>
+				<i class="fa fa-quote-left"></i>
+					<span id="lbl_bio"></span>	
+				<i class="fa fa-quote-right"></i><br>
+				
+				<img src="img/Chittiness/ic_picto_music_ok.png" class="img-circle user-preference" id="src_chitti" />
+				<img src="img/smoking/ic_picto_smoke_ok.png" class="img-circle user-preference" id="src_smoking"/>
+				<img src="img/music/ic_picto_music_ok.png" class="img-circle user-preference" id="src_music"/>
+				<img src="img/Pets/ic_picto_dog_ok.png" class="img-circle user-preference" id="src_pets"/>
+			</div><hr>
+			<div>
+				<p class="main.title">Contact Detail</p>
+				<p id="lbl_mobile">Mobile Number </p><span id="lbl_mobile"></span>
+			</div><hr>
+			<div>
+				<p class="main-title">Verifications</p>
+				<i class="fa fa-check-circle-o fa-lg pull-right colour" ></i>
+				<p class="colour">Email Verified</p>
+			</div><hr>
+			<div>
+				<p class="main-title">Member Activity</p>
+				<span>Rides offered: </span><small id="lbl_offerride"></small><br>
+				<span>Member since: </span><small id="lbl_member_since"></small>
+			</div><hr>
+			<a href="#" data-toggle='modal' data-target='#msg-modal' class='btn-toggle-close'><div class="colour report">
+				<span>Report This Member</span>
+			</div></a><hr>
+		</div>
+		<form method="post" id="frm-carOwner-msg">
+			<a href="#" role="button" data-toggle="modal" data-target="#msg-modal" class="btn-toggle-close"></a>
+				<div class='modal fade' id='msg-modal' tabindex='-1' role='dialog'>
+				<div class='modal-dialog'>
+				<div class='modal-content'>
+					<div class='modal-header'>
+						Send a Message car Owner
+						<button type='button' class='close' data-dismiss='modal' aria-label='Close'>&times;</button>
+					</div>
+					<div class='modal-body'>
+							<textarea class="txt-input comment-name" id="msg"></textarea>
+					</div>
+					<div class='modal-footer'>
+						<button type='button' class='btn btn-lg btn-block btn-color' id="btn-contact-msg">Send Message</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>

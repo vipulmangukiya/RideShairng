@@ -1,0 +1,94 @@
+root { 
+    display: block;
+}
+
+.find-ride {
+	margin-top:20%;
+	text-align:center;
+}
+.offer_ride{
+	background: white;
+	margin-top:40px;
+}
+.blank-white {
+	width:100%;
+	height:auto;
+	margin: 20px 0% 5% 0%;
+	padding: 0px 5% 0 5%;
+	font-size: 15px;
+	background:white;
+}
+.blank {
+	margin:0px;
+	width:100%;
+	height:40px;
+	background: rgb(249, 103, 72);
+	color: white;
+	padding:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+.data{
+	border-top:1px solid #FFF;
+}
+.txt{
+	margin-bottom:5%;
+	width:80%;
+	margin-left:8%;
+}
+.txt-rnd{
+	width:45%;
+	margin-left:8%;
+}
+.txt-rnd-time{
+	width:30%;
+	margin-left:4%;
+}
+.offer-ride-top{
+	height:50px;
+	width:100%;
+	color:#FFF;
+	background:#f96748;
+	position: relative;
+}
+.share-head{
+	padding: 10px 20px 10px 80px !important;
+	font-size: 20px;
+	font-weight:100;
+}
+.price-minus{
+	margin-right:15px
+}
+.offer-price{
+	width:20%;
+	height:30px
+}
+.lbl {	padding-left:20px;}
+.lbl:hover{	pointer:cursor;}
+.small-margin{
+	margin-left:35px;
+	display:block;
+}
+.usr{
+	margin-right:20px;
+	width:100%;
+}
+.mrgin{
+    margin-top:10px;
+    margin-bottom: 10px; 
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: rgba(0, 0, 0, .2);
+}
+
+.dat{
+	margin-top:10px;
+	width:100%;
+}
+.detail-car{
+	text-align:center;
+	margin:10px 0 10px 0;
+}

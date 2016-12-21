@@ -1,0 +1,62 @@
+
+
+.user-img{
+	margin:20px 0 20px 40px;
+	float:left;
+}
+.user-img > img{
+	height:60px;
+	width:60px;
+}
+.user-name{
+	float:left;
+	margin:30px 0px 0 20px;
+}
+.user-name > span{
+	font-size:20px;
+}
+.user-bio{
+	display:block;
+}
+.user-email{
+	margin-left:16px;
+}
+.preference{
+text-align:center;
+}
+.preference > img {
+	margin:10px 15px 0 0;
+	height:40px;
+	width:40px;
+	
+}
+.labl{
+	font-weight:100;
+	margin-left:20px;
+}
+.detail-car{
+	text-align:center;
+	margin:10px 0 10px 0;
+}
+.edit-delete-btn-div{
+	margin-top:20px;
+}
+.btn-car-edit{
+	margin-left:15%;
+	width:85px;
+	background:#fff;
+	border:1px solid blue;
+	border-radius:3px;
+	color:blue;
+}
+.btn-car-delete{
+	margin-right:15%;
+	width:85px;
+	background:#fff;
+	border:1px solid red;
+	border-radius:3px;
+	color:red;
+}
+.data-margin{
+	margin-top:25px;
+}

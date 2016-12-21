@@ -1,0 +1,27 @@
+.head-title{
+	height:50px; 
+	width:100%;
+}
+.head-padding{
+	padding:15px;
+}
+.title-font{
+	font-weight:400;
+	margin-top:25px
+}
+.head-font{
+	margin:20px 0 0 20px;
+}
+.toggle{
+	padding:10px;
+	margin:20px;
+	box-shadow: 1px 1px 1px 1px #888888;
+}
+.toggle-heading{
+	font-weight:400;
+	margin-left:20px;
+}
+.toggle-data{
+	font-size:15px;
+	margin-top:10px;
+}

@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>RideSharing</title>
+
+	 
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <meta charset="utf-8"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="msapplication-tap-highlight" content="no"/>
+        <meta name="viewport" content="user-scalable=no, maximum-scale=1, minimum-scale=1, width=device-width"/>
+       
+		<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/include.jsonp"></script> 	
+		<script src="js/app.js"  type="text/javascript" ></script>
+		<script src="js/edit-profile.js"  type="text/javascript" ></script>
+		<script src="js/Ajax-form.js" type="text/javascript"></script>
+		
+		<link  type="text/css" rel="stylesheet" href="css/toast.css"> 
+		<link id="cs" rel="stylesheet" type="text/css"> 
+		<link type="text/css" rel="stylesheet"  href="css/spinner.css">  
+		<link type="text/css" rel="stylesheet"  href="css/edit-profile.css"> 
+		<link  rel="stylesheet" type="text/css" href='css/datepicker.css'>	
+		<script type="text/javascript" src="cordova.js" charset="utf-8"></script> 	 	
+	<script type="text/javascript">
+		var  app = {
+			initialize: function() {
+				this.bindEvents();
+			},
+			bindEvents: function() {
+				document.addEventListener('deviceready',this.onDeviceReady, false);
+			},
+			onDeviceReady: function() {
+				var btn = document.getElementById('capImages');
+					btn.addEventListener("click", app.useCamera, false);
+			},
+			useCamera: function() {
+				navigator.camera.getPicture(app.onSuccessCam,app.Error,{
+					destinationType: Camera.DestinationType.DATA_URL,
+					sourceType: 0
+				});
+			},
+			onSuccessCam: function(imageURI) {
+				var image = document.getElementById('user_avtar_img');
+					image.src = "data:image/jpeg;base64," + imageURI;
+					 document.getElementById('user_img_db').innerHTML = imageURI;
+			},
+			Error: function(error) {
+				alert(error);
+			}
+		};
+	</script> 	
+</head>
+    <body>
+	<div class="" id="spinner-load" >
+			<div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		 <div class="error_msg_vipz" style="display:none;"></div>
+		<div class="profil">
+			<div class="edit-heading" ><a href="profile.html" class="color-white"><i class="fa fa-arrow-left top-arro"></i></a>Edit profile </div>
+		<form form name="" action="" method="post" id="frm-edit-user-profile">
+			<div class="profile-avatar">
+				<img src="" id="user_avtar_img" name="avtar" >
+				<a href="#" style="" id="capImages"><i class="fa fa-pencil"></i></a>
+				
+			</div>
+				<textarea name="user_avatar" id="user_img_db" style="display:none"></textarea>
+			<div id='error-msg'></div>
+			
+			<div class="edit-heading">About You</div>
+			<div class="edit-page">
+				<div class="gender">
+					<label>GENDER</label>
+					<i class="fa fa-sort-down pull-right"></i>
+					<label style="display:block; margin-left:35px;" id="sel-gender"></label>
+				</div>
+				<div>
+					<ul class="other-det gender-div" id="op-gender" style="display:none">
+						<a href="#" class='gender-a'><li data-value="M" class="op-toggle-gender op-padding" >Male</li></a>
+						<a href="#" class='gender-a' ><li data-value="F" class="op-toggle-gender op-padding" >Female</li></a>
+					</ul>
+					<input type="hidden" name="gender" id="txt-gender"/>
+				</div>
+				<div>
+					<label class="">FIRST NAME</label></br>
+					<input type="text" class="txt-input txt-width" id="edit-firstname" name="firstname" placeholder="Firstname">
+				</div>
+				<div>
+					<label class="">LAST NAME</label></br>
+					<input type="text" class="txt-input txt-width" id="edit-lastname" name="lastname" placeholder="Lastname">
+				</div>
+				<div>
+					<label class="">BIRTH DATE</label></br>
+					<input type="text" class="txt-input txt-width" id="edit-dob" name="dob" placeholder="Birthdate">
+				</div>
+				<div>
+					<label>Your Bio</label><br>
+					<textarea id="edit-bio" class="txt-input txt-width" placeholder="Write About Ride" name="about-ride" ></textarea>
+				</div>
+			</div>
+			<div class="edit-heading">Email & Mobile</div>
+			<div style="padding:20px;">
+				<input type="text" class="txt-input txt-width" id="user_email" name="email"><br><br>
+				<input type="text" class="txt-input txt-width" id="user_mobile" name="mobile">
+			</div>
+			<button class="btn-button" type="submit">Save Profile</button>
+			<input type="hidden" name="user_id" id="txt-user_id"/>
+		</div>
+		</form>
+	 <script type="text/javascript">
+		app.initialize();
+	 </script>
+	 <script type="text/javascript" src="js/datepicker.js"></script> 
+		<script type="text/javascript" src="js/datepicker.standalone.js"></script> 
+	 <script type="text/javascript">
+	
+	//------Ride Find------------------------------------
+		const picker_find =new MaterialDatePicker({})
+		.on('submit', (d) =>{
+			document.getElementById('edit-dob').value = get_date(d);
+		});
+		const el_find = document.querySelector('#edit-dob');
+			el_find.addEventListener('click',() =>{
+				picker_find.open();
+			},false);
+
+	
+	//--- Custom date Format *---------------		
+		function get_date(d) {
+			var dt = new Date(d);
+			var month = dt.getMonth()+1;
+			var day = dt.getDate();
+			var year = dt.getFullYear();
+			return year+"-"+month+"-"+day;
+		}
+	</script>
+	</body>
+</html>

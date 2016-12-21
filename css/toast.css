@@ -1,0 +1,21 @@
+.error_msg_vipz {
+	 width: auto;
+                height: 20px;
+                height: auto;
+                position: absolute;
+                left:50%;
+                margin-left: -112px;
+                bottom: 10px;
+                background-color: #383838;
+                color: #F0F0F0;
+                font-family: Calibri;
+                font-size: 20px;
+                padding: 10px;
+                text-align: center;
+                border-radius: 21px;
+                opacity: 1;
+                z-index: 99999;
+                -webkit-box-shadow: 0px 0px 24px 1px rgba(56,56,56,1);
+                -moz-box-shadow: 0px 0px 24px -1px rgba(56,56,56,1);
+                box-shadow: 0px 0px 24px -1px rgba(56,56,56,1);
+}

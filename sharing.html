@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <meta charset="utf-8"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="msapplication-tap-highlight" content="no"/>
+        <meta name="viewport" content="user-scalable=no, maximum-scale=1, minimum-scale=1, width=device-width"/>
+        
+	<title></title>
+        <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/road.jsonp"></script> 	
+		<script type="text/javascript" src="js/login.js"></script> 
+		<script type="text/javascript" src="js/login.jsonp"></script>
+		<script src="js/Ajax-form.js" type="text/javascript"></script>
+	
+		<script type="text/javascript" src="js/timedropper.min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script> 
+		<script type="text/javascript" src="js/sharing.js"></script> 
+		<script src="js/autoAjaxCity.js" type="text/javascript"></script>
+		<link 	rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+		<link  type="text/css" rel="stylesheet" href="css/toast.css"> 
+		<link  rel="stylesheet" type="text/css" href='css/datepicker.css'>	
+		<link  rel="stylesheet" type="text/css" href='css/road.css'>
+		<link href='css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/header.css">
+        <link  rel="stylesheet" type="text/css" href='css/style.css'>
+		<link  rel="stylesheet" type="text/css" href='css/spinner.css'>
+		<link type="text/css" rel="stylesheet"  href="css/bootstrap.min.css">  
+		<link type="text/css" rel="stylesheet"  href="css/timedropper.min.css">  
+		<link  rel="stylesheet" type="text/css" href='css/sharing.css'>
+		<link  type="text/css" rel="stylesheet" href="css/login.css">
+    </head>
+    <body style="overflow-x:hidden">
+<!-- Colleps Menu Start -->
+<div id="loader"></div>
+<div id="login"></div>	
+		<div class="" id="spinner-load" >
+			<div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+        <div class='page-head'>
+			 <button type='button' class="ham-burger" id="btn-toggle">
+                <span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+			<label style="padding: 10px 20px 10px 80px !important;font-size: 20px; font-weight:100;" id="head-title">Ride a ride</label>
+		</div>
+		 <div class="error_msg_vipz" style="display:none;"></div>
+		 <div id="myNav" class="overlay">
+            <div class="close-button-wrap">
+                <a href="javascript:void(0)" class="closebtn btn-toggle-close"  role="button" >&times;</a>
+            </div>
+			
+            <div class="overlay-content" >
+                  <a href="#" class="avtr_back" id="menu_avtar" ><img src="" id="img_src_user" style="width:50px;height:50px;border-radius:50%;" class="img-circle"></a>
+                   <a href="#"  id="your_page"><i class="fa fa-road fa-lg"></i>&nbsp;&nbsp; Your Ride</a>
+                  <a href="sharing.html?div=2" ><i class="fa fa-search fa-lg"></i>&nbsp;&nbsp; Offer a Ride</a>
+                  <a href="sharing.html?div=1" ><i class="fa fa-search fa-lg"></i>&nbsp;&nbsp; Find a Ride</a><hr class="hr_line">
+				  <div style="display:block" id="div-login"><a href='#' role='button' data-toggle='modal' data-target='#login-modal' class="btn-toggle-close"><span class='fa fa-lg fa-user-plus'></span>&nbsp;&nbsp; Login / SignUp</a></div>
+				  <div style="display:none" id="div-logout"><a href='#' role='button' class="btn-toggle-close btn-logout"><span class='fa fa-lg fa-sign-out'></span>&nbsp;&nbsp; Logout</a></div>
+				  <div style="display:none" id="div-location"><a href="location.html" ><i class="fa fa-search fa-lg"></i>&nbsp;&nbsp; Share Your Location</a><hr class="hr_line"></div>
+                  <a href="#" ><i class="fa fa-question fa-lg"></i>&nbsp;&nbsp; Help</a>
+            </div>
+        </div>
+		<div id="logn"></div>
+		
+        <div class="home_menu">
+            <ul class="home_menubar">
+                <a href="#" role="button" id="btn-ride-find-li"><li id="find-color" class="menu_item_share">Find a Ride</li></a>
+				 <a href="#" role="button" id="btn-ride-offer-li"><li id="offer-color" class="menu_item_share">Offer a Ride</li></a>
+            </ul>
+        </div>
+		<!-- Find Ride start -->
+		<div class="find-ride" id="div-findride" >
+			<form name="find" id="find-ride-frm" method="post" >
+				<i class="fa fa-map-marker fa-lg"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="dep_place" list="form_list" id="from_city" class="txt-input" placeholder="From" /><div id="form_result"></div><br>
+				<i class="fa fa-map-marker fa-lg"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="arr_place" list="to_list" id="to_city"  class="txt-input" placeholder="To"   /><div id="to_result"></div><br>
+				<i class="fa fa-calendar fa-lg"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="dt" class="txt-input " placeholder="Date" id="dt_find" readonly="" /><br><br>
+				<span id=""></span>
+				<button class="btn-button" id="btn-fin" name="find_ride"  disabled type="submit" style="background:#a5a5a5"> Find a ride</button>
+			</form>
+		</div>
+		<div id="ride-result"></div>
+		<div id="ride-result-data"></div>
+		<!-- Find Ride end -->
+		
+		<!-- Ride Share step1 start  -->
+	 
+	<form name="" action="" method="post" id="frm-ride-share">
+		<div  id="div-offerride"  class="offer_ride" style="display:none;">
+			<div class="blank data">Exact route</div>
+			<div class="blank-white"> 
+				<i class="fa fa-map-marker fa-lg usr"><input type="text" name="offer-dept" list="form_list_offer" id="form_city_offer" class="txt-input txt" placeholder="Form"/></i><div id="from_result_offer"></div>
+				<i class="fa fa-map-marker fa-lg usr"><input type="text" name="offer-arrival" list="to_list_offer" id="to_city_offer" class="txt-input txt" placeholder="to"  /></i><div id="to_result_offer"></div>
+			<div id="div-route" style="display:none;">
+					<i class="fa fa-map-marker fa-lg usr"><input type="text" name="route" class="txt-input txt" placeholder="Route" id="route"  /></i>
+				</div>
+			</div>	
+			
+			<div class="blank">Date and  Time</div>
+			<div class="blank-white">
+				<i class="fa fa-exchange"></i><label for="trip-type" class="lbl">Round Trip</label><input type="checkbox"  id="trip-type" class="right-side" checked/>
+				<i class="fa fa-calendar fa-lg dat">
+					<input type="text" name="date-dept"  class="txt-input txt-rnd" placeholder="Depture Date" id="dt-dept" readonly />
+					<input type="text" name="dep-time"  class="txt-input txt txt-rnd-time" placeholder="Time" id="dt-dept-time" readonly />
+				</i>
+				<div id="re-dat">
+					<i class="fa fa-calendar fa-lg dat">
+						<input type="text" name="date_return"   class="txt-input txt-rnd " placeholder="Return Date" id="dt-return" readonly />
+						<input type="text" name="return-time"  class="txt-input txt txt-rnd-time" placeholder="Time" id="dt-return-time" readonly />
+					</i>
+				</div>
+				<button id="btn-step1" class='btn-button' type='button' disabled style="background:#a5a5a5">Continue</button>
+			</div>
+		</div>
+		 <!-- RideShare Step1 end -->
+		 
+		 <!-- RideShare Step2 start -->
+		 <div id="back-div" class="offer-ride-top" style="display:none">
+			<div class="edit-heading" ><a href="#" class="color-white top-arrow" role="button" id="btn-back"><i class="fa fa-arrow-left  top-arro"></i><label id="route_title"></label></a></div>
+ 
+			<!-- <a href="#" class="color-white" role="button" id="btn-back"><span class="fa fa-arrow-left top-arrow fa-lg" >OFFER RIDE</span></a> -->
+			<!-- <label style="padding: 10px 20px 10px 80px !important;font-size: 20px; font-weight:100;" id="head-title-next"></label> -->
+		</div>
+		<div id="ride-step2" style="display:none;">
+		
+			<div class="blank data">Price</div>
+			<div class="blank-white"> 
+				<label id="route_name"></label>
+				<a role="button" id="btn-price-plus" class="right-side"><i class="fa fa-plus-circle"></i></a>
+				<input type="text" class="right-side txt-input offer-price price-minus" id='lbl-price' value="450" name="price" style="text-align:center">
+				<a role="button" id="btn-price-minus" class="right-side price-minus"><i class="fa fa-minus-circle" ></i></a>
+			</div>
+			<div class="blank-white"><label>Number of seats Offer </label>
+				<a role="button" id="btn-seat-plus" class="right-side"><i class="fa fa-plus-circle"></i></a>
+				<label class="right-side price-minus" id='lbl-seat'>2</label>
+				<a role="button" id="btn-seat-minus" class="right-side price-minus"><i class="fa fa-minus-circle" ></i></a>
+				<input type="hidden" name="seats" id="txt-seats">
+			</div>
+			
+			<div class="blank">Options</div>
+			<div class="blank-white">
+				<label for="max-back">Max. 2 in the back seats </label>
+				<input type="checkbox" name="max-seats" id="max-back"  value="1" class="right-side"/><br><br>
+			</div>
+			<div class="blank">Ride Comment</div>
+			<div class="blank-white">
+				<textarea id="ride-comment" class="txt-input" placeholder="Write About Ride" name="about-ride"></textarea>
+			</div>
+			<div class="blank">Other Deatils</div>
+			<div class="blank-white">
+			<div id="car_show" style="display:none">
+				 
+					<div class="car-op">
+						<i class="fa fa-car"></i>
+						<label class="lbl" for="lug-size"> Select Your Car</label>
+						<i class="fa fa-sort-down pull-right" style=" cursor: pointer;"></i>
+						<small style="display:block; margin-left:35px;" id="sel-car"></small>
+						<input type="hidden" name="car_id" id="txt-car-id" value="0">
+					</div>
+					<div>
+						<ul class="other-det" id="ul-car-op" style="display:none"></ul>
+				</div>
+				</div>
+				<div class="lug-size">
+					<i class="fa fa-user"></i>
+					<label class="lbl" for="lug-size"> Maximum Luggage Size</label>
+					<i class="fa fa-sort-down pull-right" id="lug-size" style=" cursor: pointer;"></i>
+					<small style="display:block; margin-left:35px;" id="sel-ul-luggage">Small</small>
+					<input type="hidden" name="lg-size" value="1" id="txt-lg-size">
+				</div>
+				<div>
+					<ul class="other-det" id="ul-luggage" style="display:none"></ul>
+				</div>
+				<div class="will-leave">
+					<i class="fa fa-user"></i>
+					<label class="lbl" for="lug-size"> I will leave</label>
+					<i class="fa fa-sort-down pull-right" style=" cursor: pointer;"></i>
+					<small style="display:block; margin-left:35px;" id="sel-will-leave">Right on time</small>
+					<input type="hidden" name="leave-option" value="1" id="txt-will-leave">
+				</div>
+				<div>
+					<ul class="other-det" id="will-leave-div" style="display:none"></ul>
+				</div>
+				<div class="make-detour">
+					<i class="fa fa-user"></i>
+					<label class="lbl" for="lug-size">I can make a detour</label>
+					<i class="fa fa-sort-down pull-right" style=" cursor: pointer;"></i>
+					<small style="display:block; margin-left:35px;" id="sel-make-detour">None</small>
+					<input type="hidden" name="late-option" value="1" id="txt-sel-make-detour">
+				</div>
+				<div>
+					<ul class="other-det" id="make-detour-div" style="display:none"></ul>
+				</div><br>
+				<input type="checkbox" id="tc"/><span class="lbl" for="tc">I accept the T&Cs and Privacy Policy. </span><br><br>
+					<button id="btn-step2" class="btn-button" type="submit" disabled style="background:#a5a5a5">Publish</button>
+				</div>
+				<input type="hidden" name="user_id" id="txt-user_id"/>
+		</div>
+	<!-- RideShare Step2 end -->
+	</form>
+		<script type="text/javascript" src="js/datepicker.js"></script> 
+		<script type="text/javascript" src="js/datepicker.standalone.js"></script> 
+	<script type="text/javascript">
+	
+	//------Ride Find------------------------------------
+		const picker_find =new MaterialDatePicker({})
+		.on('submit', (d) =>{
+			document.getElementById('dt_find').value = get_date(d);
+		});
+		const el_find = document.querySelector('#dt_find');
+			el_find.addEventListener('click',() =>{
+				picker_find.open();
+			},false);
+
+	//-------- Ride Offer Arrival Date------------
+	const picker_offer_arr =new MaterialDatePicker({})
+		.on('submit', (d) =>{
+			document.getElementById('dt-dept').value = get_date(d);
+		});
+		const el_arr = document.querySelector('#dt-dept');
+			el_arr.addEventListener('click',() =>{
+				picker_offer_arr.open();
+			},false);
+	///Ride Offer Depture date-------------
+	const picker_offer_dep =new MaterialDatePicker({})
+		.on('submit', (d) =>{
+			document.getElementById('dt-return').value = get_date(d);
+		});
+		const el_dep = document.querySelector('#dt-return');
+			el_dep.addEventListener('click',() =>{
+				picker_offer_dep.open();
+			},false);
+
+		///---register-bdate-----------------------	
+		const dt_re =new MaterialDatePicker({})
+		.on('submit', (d) =>{
+			document.getElementById('register-bdate').value = get_date(d);
+		});
+		function re_dt() {
+			const el_dep1 = document.querySelector('#register-bdate');
+			el_dep1.addEventListener('click',() =>{
+				dt_re.open();
+			},false);	
+		}
+		
+	//--- Custom date Format *---------------		
+		function get_date(d) {
+			var dt = new Date(d);
+			var month = dt.getMonth()+1;
+			var day = dt.getDate();
+			var year = dt.getFullYear();
+			return year+"-"+month+"-"+day;
+		}
+	</script>
+		<script src="js/validation.js" type="text/javascript"></script>
+    </body>
+</html>

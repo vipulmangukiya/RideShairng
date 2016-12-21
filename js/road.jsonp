@@ -1,0 +1,4 @@
+var road = "<div class='mobile'><div class='loader'><div class='road-stripes'><span></span><span></span><span></span><div class='road-cars'><i class='fa fa-bicycle'></i><i class='fa fa-bicycle'></i><i class='fa fa-bicycle'></i><i class='fa fa-bicycle'></i></div></div></div></div><script type='text/javascript'>$(window).load(function(){setTimeout(function(){$('#loader').fadeOut('fast');}, 2000);});</script>";
+$(document).ready(function(){
+	$("#loader").html(road);
+});

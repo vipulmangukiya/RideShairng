@@ -1,0 +1,46 @@
+	.font{
+	font-size:15px;
+}
+.menu-back{
+	padding:10px;
+	height:45px;
+	width:100%;
+	color:#FFF; 
+	background:rgb(249, 103, 72);
+}
+.font-car{
+	font-weight:100;
+}
+.car-img{
+	margin:20px 0px 10px 20px
+}
+.car-detail{
+	padding:0px 10px 10px 10px;
+	margin-bottom:10px;
+	box-shadow:1px 1px 1px 1px #888888; 
+}
+.car-detail-title{
+	width:100%;
+}
+.car-sub-title{
+	font-size:14px;
+	display:block;
+	font-weight:normal
+}
+.car-sub-title-icon{
+	margin-top: -25px;
+}
+.add-car{
+	margin:0px 0px 0px 20px;
+}
+.car-img > img{
+	width:100px; height:70px;
+}
+.small-car-margin{
+	display:block;
+	margin-left:10px;
+}
+.car-detail-enter {
+    overflow-y: scroll;
+    height: 300;
+}

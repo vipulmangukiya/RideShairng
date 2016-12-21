@@ -1,0 +1,7 @@
+
+var css="<link href='css/bootstrap-theme.min.css' rel='stylesheet' type='text/css'><link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'><link href='css/style.css' rel='stylesheet' type='text/css'><link href='css/font-awesome.min.css' rel='stylesheet' type='text/css'><link href='css/style.css' rel='stylesheet' type='text/css'><link href='css/jquery-ui.min.css' rel='stylesheet' type='text/css'><link href='css/road.css' rel='stylesheet' type='text/css'><link href='css/normalize.css' rel='stylesheet' type='text/css'>";
+var road = "<div class='mobile'><div class='loader'><div class='road-stripes'><span></span><span></span><span></span><div class='road-cars'><i class='fa fa-bicycle'></i><i class='fa fa-bicycle'></i><i class='fa fa-bicycle'></i><i class='fa fa-bicycle'></i></div></div></div></div>";
+$(document).ready(function(){
+	$("#cs").html(css);
+	$("#loader").html(road);
+});
